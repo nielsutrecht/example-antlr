@@ -9,6 +9,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+/*
+ * Test set that tests different expressions against their expected results.
+ */
 public class ExpressionParserTest {
     private ExpressionParser _parser;
     @Rule
@@ -22,6 +25,7 @@ public class ExpressionParserTest {
     @Test
     public void testNumber() {
         assertThat(_parser.parse("42"), equalTo(42));
+        assertThat(_parser.parse("-42"), equalTo(-42));
     }
 
     @Test
