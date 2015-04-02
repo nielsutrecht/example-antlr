@@ -36,21 +36,25 @@ public class ExpressionParserTest {
     @Test
     public void testTimes() {
         assertThat(_parser.parse("21 * 2"), equalTo(42));
+        assertThat(_parser.parse("21 times 2"), equalTo(42));
     }
 
     @Test
     public void testDiv() {
         assertThat(_parser.parse("84 / 2"), equalTo(42));
+        assertThat(_parser.parse("84 div 2"), equalTo(42));
     }
 
     @Test
     public void testPlus() {
         assertThat(_parser.parse("40 + 2"), equalTo(42));
+        assertThat(_parser.parse("40 plus 2"), equalTo(42));
     }
 
     @Test
     public void testMinus() {
         assertThat(_parser.parse("53 - 11"), equalTo(42));
+        assertThat(_parser.parse("53 minus 11"), equalTo(42));
     }
 
     @Test

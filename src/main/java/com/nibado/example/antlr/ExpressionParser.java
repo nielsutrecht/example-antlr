@@ -79,7 +79,7 @@ public class ExpressionParser {
             return visit(context.expr(0)) - visit(context.expr(1));
         }
         else {
-            return -1;
+            throw new IllegalStateException();
         }
     }
 
