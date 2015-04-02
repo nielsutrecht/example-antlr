@@ -29,16 +29,18 @@ public class ExpressionParser {
         final SimpleLexer lexer = new SimpleLexer(new ANTLRInputStream(expression));
 
         /*
-         * By default Antlr4 lexers / parsers have an attached error listener that prints errors to stderr. I prefer
-         * them to throw an exception instead so I implemented my own error listener which is attached here. I also
-         * remove any existing error listeners
+         * By default Antlr4 lexers / parsers have an attached error listener
+         * that prints errors to stderr. I prefer them to throw an exception
+         * instead so I implemented my own error listener which is attached
+         * here. I also remove any existing error listeners.
          */
         lexer.removeErrorListeners();
         lexer.addErrorListener(_listener);
 
         /*
-         * The lexer reads characters and lexes them into token stream. The tokens are consumed by the parser that
-         * then builds an Abstract Syntax Tree.
+         * The lexer reads characters and lexes them into token stream. The
+         * tokens are consumed by the parser that then builds an Abstract
+         * Syntax Tree.
          */
         final CommonTokenStream tokens = new CommonTokenStream(lexer);
         final SimpleParser parser = new SimpleParser(tokens);
@@ -57,7 +59,8 @@ public class ExpressionParser {
     }
 
     /*
-     * Visits the branches in the expression tree recursively until we hit a leaf.
+     * Visits the branches in the expression tree recursively until we hit a
+     * leaf.
      */
     private int visit(final ExprContext context) {
         if (context.number() != null) { //Just a number
@@ -84,7 +87,8 @@ public class ExpressionParser {
     }
 
     /*
-     * Helper method to create an ANTLRErrorListener. We're only interested in the syntaxError method.
+     * Helper method to create an ANTLRErrorListener. We're only interested in
+     * the syntaxError method.
      */
     private static ANTLRErrorListener createErrorListener() {
         return new ANTLRErrorListener() {
